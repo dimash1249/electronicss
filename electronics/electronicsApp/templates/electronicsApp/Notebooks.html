@@ -1,0 +1,38 @@
+{% extends 'electronicsApp/MainTemplate.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Notebooks {% endblock %} - Electronics</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <div class="container text-center sign"><h1>Notebooks</h1></div>
+                {% for notebook in notebooks %}
+                    <a href="{% url 'productDetailsPage' notebook.id %}">
+                        <div class="col-sm-4">
+                            <div class="card" style="width: 100%">
+                                <img class="card-img-top img-responsive center-block" src="{{ notebook.product_image.url }}" style="width: 70%" alt="Card image cap">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{ notebook.product_name }}</h4>
+                                    <h4 class="card-text">{{ notebook.product_price }} tenge</h4>
+                                </div>
+                            </div>
+                            <!--<div class="panel panel-default">
+                                <div class="panel-heading">{{ notebook.product_name }}</div>
+                                <div class="panel-body"><img src="{{ notebook.product_image.url }}" class="img-responsive center-block" style="width: 460px; height: 220px" alt="Image"></div>
+                                <div class="panel-footer panel-color text-center">{{ notebook.product_price }} tenge</div>
+                            </div>-->
+                        </div>
+                    </a>
+                {% endfor %}
+            </div><br/><br/>
+            <div class="container text-center sign"><h1></h1></div>
+        </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'electronicsApp/MainTemplate.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Login {% endblock %} | Electronics</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <div class="container text-center sign"><h2>Log in to your account or create a new one</h2></div><br/>
+                <div class="col-sm-6">
+                    <div class="row-sm-6 text-center" style="margin-top: 50px;">
+                        <form class="form-inline center-block" method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="btn btn-default center-block" type="submit" style="width: 36%">Log In</button>
+                        </form>
+                    </div><br/>
+                    <div class="row-sm-6 text-center">
+                        Forgot your password? <a href="{% url 'changePasswordPage' %}" class="link link-primary">Here ...</a><br/>
+                        No account? <a href="{% url 'registrationPage' %}" class="link link-primary">Create new one ...</a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row-sm-6">
+                        <img src="{% static 'images/icon.png' %}" class="img-responsive center-block" style="width: 65%">
+                    </div>
+                </div>
+            </div><br/><br/>
+        </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'electronicsApp/MainTemplate.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Tablets {% endblock %} - Electronics</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <div class="container text-center sign"><h1>Tablets</h1></div>
+                {% for tablet in tablets %}
+                    <a href="{% url 'productDetailsPage' tablet.id %}">
+                        <div class="col-sm-4">
+                            <div class="card" style="width: 100%">
+                                <img class="card-img-top img-responsive center-block" src="{{ tablet.product_image.url }}" style="height: 50%" alt="Card image cap">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{ tablet.product_name }}</h4>
+                                    <h4 class="card-text">{{ tablet.product_price }} tenge</h4>
+                                </div>
+                            </div>
+                            <!--<div class="panel panel-default">
+                                <div class="panel-heading">{{ tablet.product_name }}</div>
+                                <div class="panel-body"><img src="{{ tablet.product_image.url }}" class="img-responsive center-block" alt="Image"></div>
+                                <div class="panel-footer panel-color text-center">{{ tablet.product_price }} tenge</div>
+                            </div>-->
+                        </div>
+                    </a>
+                {% endfor %}
+
+            </div><br/><br/>
+            <div class="container text-center sign"><h1></h1></div>
+        </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,96 @@
+{% extends 'electronicsApp/MainTemplate.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Home {% endblock %} - Electronics</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6" style="border: 1px solid #eee; border-radius: 10px;">
+                    <h1 class="text-center" style="margin-top: 100px; margin-bottom: 100px;">Our slogan</h1>
+                    <div class="text-center" style="margin-top: 100px; margin-bottom: 100px;">
+                        <h3>Convenient to choose,</h3>
+                        <h3>easy to order,</h3>
+                        <h3>not long to wait,</h3>
+                        <h3>nice to receive.</h3>
+                        <h3>It is good with us.</h3>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="center-block">
+                        <img src="{% static 'images/slogan.png' %}" class="img-responsive center-block" style="width:100%; margin-top: 100px;" alt="Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel-image1"><img src="{% static 'images/about.jpg' %}" class="img-responsive" style="width:100%; margin-top: 45px" alt="Image"></div>
+                </div>
+                <div class="col-sm-6" style="border: 1px solid #eee; border-radius: 10px;">
+                    <div class="text-center" style="margin-top: 100px; margin-bottom: 100px;">
+                        <h1 class="text-center" style="margin-top: 100px; margin-bottom: 100px;"><a href="{% url 'aboutCourseProjectPage' %}" class="stretched-link">About Us</a></h1>
+                        <h4>
+                            "Electronics" is the largest store in Kazakhstan for electronics, laptops,
+                            smartphones, peripherals and one of the leaders in corporate sales of digital
+                            and household appliances in the country.
+                        </h4>
+                        <h4>
+                            Thanks to close partnerships with HP, Microsoft, Intel and others, Electronics
+                            offers over 10,000 items of certified products. We are constantly looking for
+                            new suppliers of innovative technology. As a result, for example, Electronics
+                            officially works with 14 global brands on smartphones (Apple, Samsung, Sony, etc.).
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div id="carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="card" style="width: 100%">
+                                <img class="card-img-top img-responsive center-block" src="{{ television.product_image.url }}" style="height: 200px;" alt="Card image cap">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{ television.product_name }}</h4>
+                                    <h4 class="card-text">{{ television.product_price }}</h4>
+                                    <a href="{% url 'productDetailsPage' television.id %}" class="btn btn-primary" style="width: 30%">See details</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% for television in televisions %}
+                            <div class="item">
+                                <div class="card" style="width: 100%">
+                                    <img class="card-img-top img-responsive center-block" src="{{ television.product_image.url }}" style="height: 200px;" alt="Card image cap">
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">{{ television.product_name }}</h4>
+                                        <h4 class="card-text">{{ television.product_price }}</h4>
+                                        <a href="{% url 'productDetailsPage' television.id %}" class="btn btn-primary" style="width: 30%">See details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev" style="background: #eee">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel" role="button" data-slide="next" style="background: #eee">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,82 @@
+{% extends 'electronicsApp/MainTemplate.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} About Team Members {% endblock %} - Electronics</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <div class="container text-center" style="background-color: #eee">
+                    <h1>About Team Members</h1>
+                </div>
+            </div>
+            <div class="row" style="border: 1px solid #eee; border-radius: 10px;">
+                <div class="container">
+                    <div class="col-sm-6">
+                        <div class="row center-block">
+                            <img src="{% static 'images/dimash.jpg' %}" class="img-responsive center-block" style="height:60%; margin-top: 50px;" alt="Image">
+                        </div><br/>
+                        <div class="row">
+                            <h1 class="text-center">{{ first.member_name }}</h1>
+                            <div class="text-center">
+                                <h3>One of the two founders of the electronics company</h3>
+                                <h3>Born in {{ first.born_year }}</h3>
+                                <h3>{{ first.description }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row center-block">
+                            <img src="{% static 'images/temirlan.jpg' %}" class="img-responsive center-block" style="height:60%; margin-top: 50px;" alt="Image">
+                        </div>
+                        <div class="row">
+                            <h1 class="text-center">{{ second.member_name }}</h1>
+                            <div class="text-center">
+                                <h3>One of the two founders of the electronics company</h3>
+                                <h3>Born in {{ second.born_year }}</h3>
+                                <h3>{{ second.description }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div><br/>
+            </div><br/>
+            <div class="row" style="border: 1px solid #eee; border-radius: 10px;">
+                <div class="col-sm-6">
+                    <div class="text-center" style="margin-top: 100px; margin-bottom: 100px;">
+                        <h1 class="text-center" style="margin-top: 100px; margin-bottom: 100px;">Education</h1>
+                        <h3>
+                            Third-year students of the Faculty of Information Technology,
+                            specialty of computer technology and software.
+                        </h3>
+                        <h3>
+                            International University of Information Technologies
+                            is a leading institution of higher education in the
+                            Central Asian region in the field of training qualified,
+                            internationally recognized IT specialists.
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel-image1"><img src="{% static 'images/iitu.jpg' %}" class="img-responsive" style="width:100%; margin-top: 10px" alt="Image"></div>
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="container text-center" style="background-color: #eee">
+                    <h3>Additional information</h3>
+                </div>
+                <div class="container">
+                    <div class="container">
+                        <a href="{% url 'aboutCourseProjectPage' %}">About course project</a><br/>
+                        <a href="{% url 'aboutDevelopersContactsPage' %}">About developers' contacts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>

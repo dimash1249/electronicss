@@ -1,0 +1,95 @@
+{% extends 'electronicsApp/MainTemplate.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} All products {% endblock %} - Electronics</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <a class="btn btn-success" href="{% url 'createProductPage' %}" role="button">Create a new product</a>
+                </div>
+                <div class="col-sm-6">
+                    <a class="btn btn-success" href="{% url 'createManufacturerPage' %}" role="button">Create a new manufacturer</a>
+                </div>
+            </div><br/><br/>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="text-center sign"><h2>Category Information</h2></div>
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Category Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for category in categories %}
+                                <tr>
+                                    <th>{{ category.id }}</th>
+                                    <th>{{ category.category_name }}</th>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-center sign"><h2>Manufacturer Information</h2></div>
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for manufacturer in manufacturers %}
+                                <tr>
+                                    <th>{{ manufacturer.id }}</th>
+                                    <th>{{ manufacturer.manufacturer_name }}</th>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container text-center sign"><h2>Product Information</h2></div>
+                <table class="table">
+                    <thead class="thead-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price, tg</th>
+                        <th>Category</th>
+                        <th>Manufacturer</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <th>{{ product.id }}</th>
+                                <th><a href="{% url 'productDetailsPage' product.id %}">{{ product.product_name }}</a></th>
+                                <th>{{ product.product_price }}</th>
+                                <th>{{ product.category }}</th>
+                                <th>{{ product.manufacturer }}</th>
+                                <th>
+                                    <a class="btn btn-warning" href="{% url 'updateProductPage' product.id %}" role="button">Update</a>
+                                    <a class="btn btn-danger" href="{% url 'deleteProductPage' product.id %}" role="button">Delete</a>
+                                </th>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="container text-center sign"><h1></h1></div>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>

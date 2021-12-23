@@ -1,0 +1,38 @@
+{% extends 'electronicsApp/MainTemplate.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Televisions {% endblock %} - Electronics</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <div class="container text-center sign"><h1>Televisions</h1></div>
+                {% for television in televisions %}
+                    <a href="{% url 'productDetailsPage' television.id %}">
+                        <div class="col-sm-4">
+                            <div class="card" style="width: 100%">
+                                <img class="card-img-top img-responsive center-block" src="{{ television.product_image.url }}" style="height: 180px;" alt="Card image cap">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{ television.product_name }}</h4>
+                                    <h4 class="card-text">{{ television.product_price }} tenge</h4>
+                                </div>
+                            </div>
+                            <!--<div class="panel panel-default">
+                                <div class="panel-heading">{{ television.product_name }}</div>
+                                <div class="panel-body"><img src="{{ television.product_image.url }}" class="img-responsive center-block" style="width: 460px; height: 220px" alt="Image"></div>
+                                <div class="panel-footer panel-color text-center">{{ television.product_price }} tenge</div>
+                            </div>-->
+                        </div>
+                    </a>
+                {% endfor %}
+            </div><br/><br/>
+            <div class="container text-center sign"><h1></h1></div>
+        </div>
+    {% endblock %}
+</body>
+</html>

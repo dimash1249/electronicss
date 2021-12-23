@@ -1,0 +1,57 @@
+{% extends 'electronicsApp/MainTemplate.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Profile {% endblock %} | Electronics</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <div class="container text-center sign"><h2>Your profile</h2></div><br/>
+                <div class="col-sm-6">
+                    <div class="row-sm-6">
+                        <img src="{% static 'images/user.png' %}" class="img-responsive center-block" style="width: 45%; border: 10px solid #eee; border-radius: 10px">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div>
+                        <h2><b>Login: </b>{{ user.username }}</h2>
+                        <h3><b>E-mail: </b>{{ user.email }}</h3>
+                        <h3><b>Registration date: </b>{{ user.date_joined }}</h3>
+                    </div>
+                </div>
+            </div><br/><br/>
+            {% if user.username != 'admin' %}
+                <div class="row">
+                    <div class="container text-center sign"><h2>Your cart</h2></div><br/>
+                    <div class="container">
+                        <div class="row">
+                            <div class="container text-center sign"><h1>{{ header }}</h1></div>
+                            {% for home in homes %}
+                                <a href="###">
+                                    <div class="col-sm-4">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                {{ home.product_name }}
+                                            </div>
+                                            <div class="panel-body">
+                                                <img src="{% static home.product_image %}" class="img-responsive center-block" style="height: 60%;" alt="Image">
+                                            </div>
+                                            <div class="panel-footer panel-color text-center">{{ home.product_price }} tenge</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="container text-center sign"><h1></h1></div>
+        </div>
+    {% endblock %}
+</body>
+</html>

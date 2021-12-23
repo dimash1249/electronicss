@@ -1,0 +1,31 @@
+{% extends 'electronicsApp/MainTemplate.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Create Manufacturer {% endblock %} - Electronics</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <div class="container text-center sign"><h1>Create a new Manufacturer</h1></div>
+            </div>
+                <form method="POST">
+                    <div class="col-sm-6">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <br/>
+                        <button class="btn btn-success btn-lg center-block" type="submit">Create Manufacturer</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="{% static 'images/manufacturer.png' %}" class="img-responsive center-block" style="width: 65%">
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>

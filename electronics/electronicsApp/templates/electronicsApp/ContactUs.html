@@ -1,0 +1,68 @@
+{% extends 'electronicsApp/MainTemplate.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Contact us {% endblock %} - Electronics</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <div class="container text-center sign"><h1>Contact Us</h1></div><br/>
+                <div class="col-sm-6">
+                    <div class="row-sm-6">
+                        <h4>If you have any questions or queries a member of staff will always be happy to help. Feel free to contact us by telephone or email and we will be sure to get back to you as soon as possible.</h4>
+                    </div><br/>
+                    <div class="row-sm-6">
+                        <div class="col-sm-6">
+                            <h5>
+                                <b>Call us / WhatsApp</b><br/>
+                                +7 747 333 00 00<br/>
+                                <b>Email</b><br/>
+                                info@iitu.kz<br/>
+                            </h5>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5>
+                                <b>Working hours</b><br/>
+                                Mon - Fri, 9.00 - 17.00<br/>
+                                Sat, 9.00 - 13.00<br/>
+                                Sun, weekend<br/>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <img src="{% static 'images/contact.jpg' %}" style="width: 100%">
+                </div>
+            </div>
+        </div><br/><br/><br/>
+
+        <div class="container">
+            <div class="row">
+                <div class="container text-center sign"><h1>Our location</h1></div><br/><br/>
+                <div class="col-sm-6">
+                    <form class="form-inline">
+                        <div class="row-sm-6 text-center">
+                            <h4>We will call you back!</h4>
+                        </div>
+                        <br/>
+                        <div class="row-sm-6 text-center">
+                            <input type="text" class="form-control" size="50" placeholder="Your name" required="true"><br/><br/>
+                            <input type="email" class="form-control" size="50" placeholder="Your email" required="true"><br/><br/>
+                            <input type="tel" class="form-control" size="50" placeholder="Your phonenumber" required="true"><br/><br/>
+                            <input type="submit" class="form-control" size="50" value="Submit"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.7762669187673!2d76.90755611499125!3d43.23515028738107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883692f027581ad%3A0x2426740f56437e63!2z0JzQtdC20LTRg9C90LDRgNC-0LTQvdGL0Lkg0YPQvdC40LLQtdGA0YHQuNGC0LXRgiDQuNC90YTQvtGA0LzQsNGG0LjQvtC90L3Ri9GFINGC0LXRhdC90L7Qu9C-0LPQuNC5!5e0!3m2!1sru!2skz!4v1633514403019!5m2!1sru!2skz" width="85%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div><br/>
+        </div>
+    {% endblock %}
+</body>
+</html>

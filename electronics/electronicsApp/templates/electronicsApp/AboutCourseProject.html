@@ -1,0 +1,39 @@
+{% extends 'electronicsApp/MainTemplate.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} About Course Project {% endblock %} - Electronics</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block main %}
+        <div class="container">
+            <div class="row">
+                <div class="container text-center" style="background-color: #eee">
+                    <h1>About Course Project</h1>
+                </div>
+                <div class="container">
+                    <h3>
+                        Our project is dedicated to an online store that sells various electronics such as
+                        smartphones, computers and so on. Our website consists of 8 main pages and two minor ones
+                        (Cart page and product page). They are home, smartphones, notebooks, televisions, tablets,
+                        home appliances, contact us, and login page.
+                    </h3>
+                </div><br/>
+                <div class="container text-center" style="background-color: #eee">
+                    <h3>Additional information</h3>
+                </div>
+                <div class="container">
+                    <br/>
+                    <div class="container">
+                        <a href="{% url 'aboutTeamMembersPage' %}">About team members</a><br/>
+                        <a href="{% url 'aboutDevelopersContactsPage' %}">About developers' contacts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>
